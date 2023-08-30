@@ -103,7 +103,7 @@ public class OrderRepository {
     		for(Order order:partnerOrdersDb.get(id)) {
     			if(order.getDeliveryTime()>calcTime) ans++;
     		}
-    		return ans;
+    		
     		
     	}
     	return ans;
@@ -119,6 +119,8 @@ public class OrderRepository {
 		}
 		String hour=String.valueOf(lastDeliveryTime/60);
 		String mins=String.valueOf(lastDeliveryTime%60);
+		if(hour.length()<2) hour="0"+hour;
+		if(mins.length()<2) mins="0"+mins;
 		String result=hour+":"+mins;
 		
 		return result;
